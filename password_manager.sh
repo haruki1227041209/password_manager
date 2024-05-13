@@ -1,15 +1,21 @@
-
 #!/bin/sh
 
 echo "パスワードマネージャーへようこそ！"
-echo "サービス名を入力してください："
-read service_name
-echo "ユーザー名を入力してください："
-read user_name
-echo "パスワードを入力してください："
-read password
+echo "次の選択肢から入力してください(Add Password/Get Password/Exit)："
+read options
 
-echo "サービス名:$service_name ユーザー名:$user_name パスワード:$password" >> service_data.sh
+if [ "$options" = "Add Password" ]; then
+   echo "サービス名を入力してください："
+   read service_name
+   echo "ユーザー名を入力してください："
+   read user_name
+   echo "パスワードを入力してください："
+   read password
 
-echo "Thank you!"
+   echo "サービス名:$service_nameユーザー名:$user_nameパスワード:$password" >> service_data.sh
 
+  echo "サービス名：$service_name"
+  echo "ユーザー名：$user_name"
+  echo "パスワード：$password"
+  echo "Thank you!"
+fi
