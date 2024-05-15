@@ -13,9 +13,6 @@ until [ "$options" = "Exit" ]; do
 		echo "パスワードを入力してください："
 		read password
 		echo "サービス名:$service_name ユーザー名:$user_name パスワード:$password" >> service_data.sh
-		echo "サービス名：$service_name"
-		echo "ユーザー名：$user_name"
-		echo "パスワード：$password"
 		echo "Thank you!"
 
 	elif [ "$options" = "Get Password" ]; then
