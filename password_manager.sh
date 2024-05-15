@@ -26,9 +26,9 @@ until [ "$options" = "Exit" ]; do
 		result_user_name=`echo "$result_service" | awk '{print $2}'`
 		result_password=`echo "$result_service" | awk '{print $3}'`
 		if [ "サービス名:$input_service_name" = "$result_service_name" ]; then
-	 		echo "サービス名：$result_service_name"
-			echo "ユーザー名：$result_user_name"
-			echo "パスワード：$result_password"
+	 		echo "$result_service_name"
+			echo "$result_user_name"
+			echo "$result_password"
 		else
 			echo "そのサービスは登録されていません。"
 		fi
