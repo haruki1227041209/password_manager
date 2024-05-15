@@ -12,13 +12,16 @@ until [ "$options" = "Exit" ]; do
 		read user_name
 		echo "パスワードを入力してください："
 		read password
+		gpg service_data.sh.gpg
 		echo "サービス名:$service_name ユーザー名:$user_name パスワード:$password" >> service_data.sh
+		gpg -c service_data.sh
+		rm service_data.sh
 		echo "Thank you!"
 
 	elif [ "$options" = "Get Password" ]; then
 		echo "サービス名を入力してください："
 		read input_service_name
-		result_service=`grep "サービス名:$input_service_name" service_data.sh`
+		result_service=`gpg -d service_data.sh.gpg | grep "サービス名:$input_service_name"`
 		result_service_name=`echo "$result_service" | awk '{print $1}'` 
 		result_user_name=`echo "$result_service" | awk '{print $2}'`
 		result_password=`echo "$result_service" | awk '{print $3}'`
